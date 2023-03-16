@@ -19,7 +19,7 @@ jobs:
       # Выполняется, когда PR октрыт
       - name: Move Task When PR Opened
         if: github.event.action != 'closed'
-        uses: evrone-erp/yandex-tracker-action@v1.0.1
+        uses: evrone-erp/yandex-tracker-action@v1
         with:
           token: ${{secrets.TOKEN_GITHUB}}
           yandex_org_id: ${{ secrets.YANDEX_ORG_ID }}
@@ -29,7 +29,7 @@ jobs:
       # Выполняется, когда PR смержен
       - name: Move Task When PR Merged
         if: github.event.pull_request.merged == true
-        uses: evrone-erp/yandex-tracker-action@v1.0.1
+        uses: evrone-erp/yandex-tracker-action@v1
         with:
           token: ${{secrets.TOKEN_GITHUB}}
           yandex_org_id: ${{ secrets.YANDEX_ORG_ID }}
