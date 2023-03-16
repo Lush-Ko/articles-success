@@ -23,7 +23,7 @@ jobs:
         with:
           token: ${{secrets.GITHUB_TOKEN}}
           yandex_org_id: 7771971
-          yandex_oauth2_token: y0_AgAAAAAoabBTAAlHqAAAAADelxLhLehNMbMkTWe_Z2S8heOVfw42sfA
+          yandex_oauth2_token: ${{ secrets.YANDEX_OAUTH2_TOKEN }}
           task_url: True
           to: Ревью
 
