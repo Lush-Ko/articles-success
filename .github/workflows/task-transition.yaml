@@ -1,3 +1,37 @@
-- name: Move Yandex Tracker Task On Board
-  uses: evrone-erp/yandex-tracker-action@v1.0.2
+name: YC Tracker
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - closed
 
+jobs:
+  validate-rules-and-move-task:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      # Выполняется, когда PR октрыт
+      - name: Move Task When PR Opened
+        if: github.event.action != 'closed'
+        uses: evrone-erp/yandex-tracker-action@v1
+        with:
+          token: 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
+          yandex_org_id: 7771971
+          yandex_oauth2_token: y0_AgAAAAAoabBTAAlHqAAAAADelxLhLehNMbMkTWe_Z2S8heOVfw42sfA
+          to: 'Ревью'
+
+      # Выполняется, когда PR смержен
+      - name: Move Task When PR Merged
+        if: github.event.pull_request.merged == true
+        uses: evrone-erp/yandex-tracker-action@v1
+        with:
+          token: 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
+          yandex_org_id: 7771971
+          yandex_oauth2_token: y0_AgAAAAAoabBTAAlHqAAAAADelxLhLehNMbMkTWe_Z2S8heOVfw42sfA
+          to: 'Решено'
