@@ -21,9 +21,9 @@ jobs:
         if: github.event.action != 'closed'
         uses: evrone-erp/yandex-tracker-action@v1
         with:
-          token: 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
-          yandex_org_id: 7771971
-          yandex_oauth2_token: y0_AgAAAAAoabBTAAlHqAAAAADelxLhLehNMbMkTWe_Z2S8heOVfw42sfA
+          token: ${{secrets.TOKEN_GITHUB}}
+          yandex_org_id: ${{ secrets.YANDEX_ORG_ID }}
+          yandex_oauth2_token: ${{ secrets.YANDEX_OAUTH2_TOKEN }}
           to: 'Ревью'
 
       # Выполняется, когда PR смержен
@@ -31,7 +31,7 @@ jobs:
         if: github.event.pull_request.merged == true
         uses: evrone-erp/yandex-tracker-action@v1
         with:
-          token: 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
-          yandex_org_id: 7771971
-          yandex_oauth2_token: y0_AgAAAAAoabBTAAlHqAAAAADelxLhLehNMbMkTWe_Z2S8heOVfw42sfA
+          token: ${{secrets.TOKEN_GITHUB}}
+          yandex_org_id: ${{ secrets.YANDEX_ORG_ID }}
+          yandex_oauth2_token: ${{ secrets.YANDEX_OAUTH2_TOKEN }}
           to: 'Решено'
