@@ -35,4 +35,4 @@ jobs:
           yandex_org_id: ${{ secrets.YANDEX_ORG_ID }}
           yandex_oauth2_token: ${{ secrets.YANDEX_OAUTH2_TOKEN }}
           task_url: True
-          to: 'Закрыт'
+          to: 'Решено'
