@@ -24,7 +24,6 @@ jobs:
           token: ${{secrets.TOKEN_GITHUB}}
           yandex_org_id: ${{ secrets.YANDEX_ORG_ID }}
           yandex_oauth2_token: ${{ secrets.YANDEX_OAUTH2_TOKEN }}
-          tasks: LUSHDEV-11
           to: 'in_review'
 
       # Выполняется, когда PR смержен
